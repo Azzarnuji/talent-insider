@@ -1,4 +1,4 @@
-<div class="sticky top-0 mb-2 shadow-lg navbar bg-base-100">
+<div class="sticky top-0 z-10 mb-2 shadow-lg navbar bg-base-100">
     <div class="flex-1">
         <a class="text-xl btn btn-ghost" href="{{ url('/dashboard') }}">Talent Insider</a>
     </div>

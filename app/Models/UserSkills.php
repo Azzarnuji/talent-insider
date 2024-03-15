@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-
+use App\Models\SkillsUserDescription;
 class UserSkills extends Model
 {
     use HasFactory;
@@ -12,8 +12,11 @@ class UserSkills extends Model
     public $timestamps = true;
     protected $guarded = ['id'];
 
-    public function skills()
+    public function skills_model()
     {
-        return $this->belongToMany(UserSkills::class);
+        return $this->hasOne(Skills::class, 'id', 'skills_id');
+    }
+    public function skills_user_description(){
+        return $this->hasOne(SkillsUserDescription::class, 'skills_user_id', 'id');
     }
 }

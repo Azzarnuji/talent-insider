@@ -1,0 +1,10 @@
+Step By Step
+1. Clone This Repository
+2. Change Directory to "talent-insider"
+3. Run command "composer install"
+4. Change file .env.example to .env
+5. Set APP_URL={server}:{port}
+6. Adjust variable DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD, to your server
+7. run command "php artisan key:generate"
+8. run command "php artisan migrate"
+9. Enjoy It :)

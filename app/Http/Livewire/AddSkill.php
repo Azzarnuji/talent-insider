@@ -3,6 +3,7 @@
 namespace App\Http\Livewire;
 
 use App\Models\Skills;
+use App\Models\SkillsUserDescription;
 use App\Models\User;
 use App\Models\UserSkills;
 use App\Utils\Utils;
@@ -16,6 +17,7 @@ class AddSkill extends Component
     protected $listeners = ['addSkillState'];
     public $listAvailableSkills = [];
     public $selectedSkill = null;
+    public $descriptionSkill = null;
     public function addSkillState($state)
     {
         $this->active = $state;
@@ -34,9 +36,14 @@ class AddSkill extends Component
         try{
             $checkIfSkillExistOnUser = User::find($this->user->id)->skills()->where('skills_id', $this->selectedSkill)->exists();
             if($checkIfSkillExistOnUser == false){
-                UserSkills::create([
+                $userSkillInsert = UserSkills::create([
                     'user_id'=>$this->user->id,
                     'skills_id'=>$this->selectedSkill
+                ]);
+                SkillsUserDescription::create([
+                    // 'user_id'=>$this->user->id,
+                    'skills_user_id'=>$userSkillInsert->id,
+                    'description'=>$this->descriptionSkill
                 ]);
                 DB::commit();
                 $this->emit('skillAdded', Utils::responseTemplate(200, 'Skill Added Successfully'));

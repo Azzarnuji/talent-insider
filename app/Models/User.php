@@ -48,6 +48,11 @@ class User extends Authenticatable
     {
         return $this->belongsToMany(Skills::class);
         // return $this->hasMany(UserSkills::class, 'email_user', 'email');
-
+    }
+    public function skills_user(){
+        return $this->hasMany(UserSkills::class,'user_id', 'id');
+    }
+    public function skills_user_description(){
+        return $this->hasOne(SkillsUserDescription::class, 'user_id', 'user_id');
     }
 }
