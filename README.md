@@ -9,7 +9,8 @@
 6. Adjust variable `DB_HOST, DB_PORT, DB_USERNAME, DB_PASSWORD`, to your server
 7. run command `php artisan key:generate`
 8. run command `php artisan migrate`
-9. Enjoy It :)
+9. run command `php artisan serve` if you APP_URL port is not 8000, please add to your command like this `php artisan serve --port {port}`
+10. Enjoy It :)
 
 ## Result 
 ![Result](https://github.com/Azzarnuji/talent-insider/blob/master/image-1.png)
