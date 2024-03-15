@@ -1,6 +1,6 @@
 # Talent Insider Coding Test
 
-## Setting The Project
+## Setting Up The Project
 1. Clone This Repository
 2. Change Directory to `talent-insider`
 3. Run command `composer install`
