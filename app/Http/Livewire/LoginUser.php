@@ -26,7 +26,7 @@ class LoginUser extends Component
             $isLogin = Auth::attempt(['email' => $this->email, 'password' => $this->password]);
             DB::commit();
             if (!$isLogin) {
-                $this->emit('login', Utils::responseTemplate(401,"Login Failed"));
+                $this->emit('login', Utils::responseTemplate(401,"Username / password is wrong...."));
                 return;
             }
             $this->emit('login', Utils::responseTemplate(200,"Login Success",['token'=>Utils::generateToken(Auth::user())]));

@@ -21,5 +21,8 @@ Route::get('/register', [AuthController::class, 'register']);
 Route::prefix('dashboard')->group(function () {
     Route::get('/', [DashboardController::class ,'index']);
     Route::get('/add-skill', [DashboardController::class ,'addSkill']);
-
+});
+Route::get('/logout',function(){
+    auth()->logout();
+    return redirect('/');
 });
