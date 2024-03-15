@@ -5,6 +5,9 @@
             <h3 class="text-lg font-bold">Edit Skill</h3>
             <div class="divider"></div>
             <form class="mb-2" wire:submit.prevent="submit">
+                @error('selectedSkill')
+                    <small class="text-left text-red-700">{{ $message }}</small>
+                @enderror
                 <label class="w-full form-control">
                     <div class="label">
                         <span class="font-bold label-text">Available Skills</span>
@@ -18,6 +21,9 @@
                     </select>
 
                 </label>
+                @error('descriptionSkill')
+                    <small class="text-left text-red-700">{{ $message }}</small>
+                @enderror
                 <label class="form-control">
                     <div class="label">
                         <span class="label-text">Keterangan</span>

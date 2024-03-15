@@ -21,6 +21,10 @@ class EditSkill extends Component
     // public $oldDescription = null;
     public $selectedSkill = null;
     public $descriptionSkill = null;
+    protected $rules = [
+        'selectedSkill' => 'required',
+        'descriptionSkill' => 'required'
+    ];
     public function mount(){
         $this->user = auth()->user();
         try {
@@ -37,6 +41,7 @@ class EditSkill extends Component
     }
 
     public function submit(){
+        $this->validate();
         try {
             $updateSkillUser = UserSkills::where(['user_id'=>$this->user->id, 'skills_id'=>$this->idSkill])->update([
                 'skills_id'=>$this->selectedSkill

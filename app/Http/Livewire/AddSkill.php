@@ -18,6 +18,11 @@ class AddSkill extends Component
     public $listAvailableSkills = [];
     public $selectedSkill = null;
     public $descriptionSkill = null;
+
+    protected $rules = [
+        'selectedSkill' => 'required',
+        'descriptionSkill' => 'required'
+    ];
     public function addSkillState($state)
     {
         $this->active = $state;
@@ -32,6 +37,7 @@ class AddSkill extends Component
     }
 
     public function submit(){
+        $this->validate();
         DB::beginTransaction();
         try{
             $checkIfSkillExistOnUser = User::find($this->user->id)->skills()->where('skills_id', $this->selectedSkill)->exists();
